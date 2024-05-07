@@ -1,0 +1,69 @@
+.modal {
+    display: block; /* Display the modal */
+    position: fixed; /* Position the modal */
+    z-index: 1; /* Set z-index to make sure it appears above other elements */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  }
+  
+  .modal-content {
+    background-color: transparent; /* White background */
+    padding: 20px;
+    border: 1px solid #888;
+    max-height: 100vh; /* Limit the height to 80% of the viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .close {
+    color: white; /* Light grey color for close button */
+    float: right; /* Float the close button to the right */
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black; /* Change color on hover/focus */
+    text-decoration: none; /* Remove underline on hover/focus */
+    cursor: pointer; /* Change cursor to pointer on hover/focus */
+  }
+
+  .label{
+    display: flex;
+    padding-bottom: 5px;
+    padding-left: 3px;
+    color: rgb(250, 216, 154);
+    justify-content: left;
+  }
+
+  .radio {
+    display: flex;
+  }
+
+  .radio-group{
+    display: flex;
+  }
+
+  .form-group select {
+    width: 95%; /* Full width */
+    padding: 6px; /* Padding */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 4px; /* Border radius */
+    box-sizing: border-box; /* Box sizing */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  /* Style the dropdown options */
+  .form-group select >option {
+    padding: 8px; /* Padding */
+    background-color:  #007bff;
+  }
+  
+  /* Style the dropdown when it's focused */
+  .form-group select:focus {
+    outline: none; /* Remove outline */
+  }
