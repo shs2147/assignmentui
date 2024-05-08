@@ -23,7 +23,7 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/userData/login', loginData)
+        axios.post('https://diplomatic-ambition-production.up.railway.app/userData/login', loginData)
             .then(response => {
                 console.log("Respons",response.data);
                 if(response.data === "invalid credentials"){

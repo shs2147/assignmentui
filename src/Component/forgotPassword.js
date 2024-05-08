@@ -28,7 +28,7 @@ function ForgotPassword(){
         e.preventDefault();
        
             // Perform the POST request
-            axios.post('http://localhost:8080/userData/forgotPassword', loginData)
+            axios.post('https://diplomatic-ambition-production.up.railway.app/userData/forgotPassword', loginData)
                 .then(response => {
                     // Handle success
                     console.log('Request successful:', response.data);

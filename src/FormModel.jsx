@@ -25,20 +25,22 @@ const MyForm = ({isModalOpen, setIsModalOpen, setNewData, editData, editable, se
 
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem("username"));
-    // console.log(editData);
-    axios.get(`http://localhost:8080/incident/list/${user}`)
+    console.log(user);
+
+    axios.get(`https://diplomatic-ambition-production.up.railway.app/userData/user${user}`)
       .then(response => {
-        // console.log(response.data)
-        setUserData(prevState => ({
-            ...prevState, ...response.data[0].userData
+        console.log(response.data)
+        
+          setUserData(prevState => ({
+            ...prevState, ...response.data
         }))
         setIncident(prevState => ({
-            ...prevState, emailId : response.data[0].userData.emailId, reporterName :  response.data[0].reporterName,
+            ...prevState, emailId : response.data.emailId, reporterName :  response.data.userName,
         }));
 
         if(editable){
             setIncident(prevState => ({
-                ...prevState, emailId : response.data[0].userData.emailId, reporterName :  response.data[0].reporterName,
+                ...prevState, emailId : response.data.emailId, reporterName :  response.data.userName,
                 identifier:editData.identifier, incidentPriority : editData.incidentPriority, incidentStatus: editData.incidentStatus
             }))
         }
@@ -64,7 +66,7 @@ const MyForm = ({isModalOpen, setIsModalOpen, setNewData, editData, editable, se
     // console.log(incident);
     setIsModalOpen(false);
     setEditable(false);
-    axios.post('http://localhost:8080/incident/createIncident', incident).then((res)=>{
+    axios.post('https://diplomatic-ambition-production.up.railway.app/incident/createIncident', incident).then((res)=>{
         console.log("Post data", res.data);
         setNewData(true);
 
@@ -81,8 +83,9 @@ const MyForm = ({isModalOpen, setIsModalOpen, setNewData, editData, editable, se
   function handleEditForm (e){
     e.preventDefault();
     setEditable(false);
+    setNewData(prev => !prev)
     console.log("Edit Form", incident)
-    axios.put('http://localhost:8080/incident/update', incident).then(()=>{
+    axios.put('https://diplomatic-ambition-production.up.railway.app/incident/update', incident).then(()=>{
         console.log("Form submit");
         setNewData(true);
         setIsModalOpen(false);

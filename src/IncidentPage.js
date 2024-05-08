@@ -14,7 +14,7 @@ const IncidentPage = () => {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("username"));
     console.log(user)
-    axios.get(`http://localhost:8080/incident/list/${user}`)
+    axios.get(`https://diplomatic-ambition-production.up.railway.app/incident/list/${user}`)
       .then(response => {
         console.log(response.data)
         setIncidents(response.data);

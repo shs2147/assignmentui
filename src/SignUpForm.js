@@ -25,7 +25,7 @@ const SignUpForm = () => {
         const {value } = e.target;
         if (value.length === 6) {
             // API call to fetch pincode details
-            axios.get(`http://localhost:8080/userData/${value}`)
+            axios.get(`https://diplomatic-ambition-production.up.railway.app/userData/${value}`)
                 .then(response => {
                     // Handle response
                     console.log(response.data.PostOffice[0]);
@@ -58,7 +58,7 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/userData/createUser', userData)
+        axios.post('https://diplomatic-ambition-production.up.railway.app/userData/createUser', userData)
             .then(response => {
                 console.log(response.data);
                 // Handle successful signup
